@@ -8,6 +8,7 @@
     <div class="form-row">
         <div class="form-group col-md-8">
             <label for="addName">Name</label>
+            <span id="err_name" class="hidden label label-danger">Invalid name</span>
             @Html.TextBoxFor(m => m.Name,
                     new
                     {
@@ -37,21 +38,21 @@
                     new
                     {
                         @style = "max-width:100%!important;",
-                        @class = "form-control",
+                        @class = "form-control crsr-ptr",
                         @id = "addGender",
                         @name = "addGender",
                     }
             )
         </div>
     </div>
-    @*testing*@
     <div class="form-row">
         <div class="form-group col-md-8">
-            <label for="addDOB">Birthday</label> 
+            <label for="addDOB">Birthday</label>
+            <span id="err_dob" class="hidden label label-danger">Invalid birthday</span>
             @Html.TextBoxFor(m => m.Birthday,
                     new
                     {
-                        @class = "form-control",
+                        @class = "form-control crsr-ptr",
                         @style = "max-width:100%!important;",
                         @name = "addDOB",
                         @id = "addDOB",
@@ -74,16 +75,16 @@
                         @readonly = "readonly"
                     }
             )
-            @*<input type="text" class="form-control" id="addAge" name="age" readonly />*@
         </div>
     </div>
-    <div class="form-row">
+    <div class="form-row" style="padding:0 15px!important;">
         <label for="addAddress">Address</label>
+        <span id="err_addr" class="hidden label label-danger">Invalid address</span>
         @Html.TextBoxFor(m => m.Address,
                 new
                 {
                     @style = "max-width:100%!important;",
-                    @class = "form-control col-md-12",
+                    @class = "form-control",
                     @name = "addAddress",
                     @id = "addAddress",
                     @placeholder = "House no., Street name, Compound, City",
@@ -91,7 +92,6 @@
                     required = "required"
                 }
         )
-        @*<input type="text" style="max-width:100%!important;" class="form-control" name="addAddress" id="addAddress" placeholder="House no., Street name, Compound, City" maxlength="128" required />*@
     </div>
 </div>
 <div class="modal-footer">

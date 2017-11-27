@@ -11,9 +11,15 @@
     @Scripts.Render("~/bundles/jquery-ui")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/actions")
+
+    @if (ViewBag.Id == "dboard")
+    {
+        @Scripts.Render("~/bundles/charts")
+    }
+
     @RenderSection("scripts", required: false)
 </head>
-<body>
+<body id="@ViewBag.Id">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">

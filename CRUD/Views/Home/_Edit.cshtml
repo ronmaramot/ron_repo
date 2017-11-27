@@ -8,6 +8,7 @@
     <div class="form-row">
         <div class="form-group col-md-8">
             <label for="editName">Name</label>
+            <span class="hidden label label-danger">Invalid name</span>
             @Html.TextBoxFor(m => m.Name,
                             new
                             {
@@ -38,7 +39,7 @@
                             new
                             {
                                 @style = "max-width:100%!important;",
-                                @class = "form-control",
+                                @class = "form-control crsr-ptr",
                                 @id = "editGender",
                                 @name = "editGender",
                             }
@@ -48,19 +49,18 @@
     <div class="form-row">
         <div class="form-group col-md-8">
             <label for="editDOB">Birthday</label>
+            <span class="hidden label label-danger">Invalid birthday</span>
             @Html.TextBoxFor(m => m.Birthday,
                             new
                             {
-                                @class = "form-control",
+                                @class = "form-control crsr-ptr",
                                 @style = "max-width:100%!important;",
                                 @name = "editDOB",
                                 @id = "editDOB",
-                                @type = "date",
-                                @Value = Model.Birthday.ToString("yyyy-MM-dd"),
+                                @Value = Model.Birthday.ToString("dd/MM/yyyy"),
                                 required = "required"
                             }
                     )
-            @*<input type="text" style="max-width:100%!important;" name="editDOB" class="form-control" id="editDOB" required />*@
         </div>
         <div class="form-group col-md-4">
             <label>Age</label>
@@ -75,11 +75,11 @@
                                 @readonly = "readonly"
                             }
                     )
-            @*<input type="text" class="form-control" id="editAge" name="editAge" readonly />*@
         </div>
     </div>
-    <div class="form-row">
+    <div class="form-row" style="padding:0 15px!important;">
         <label for="editAddress">Address</label>
+        <span class="hidden label label-danger">Invalid address</span>
         @Html.TextBoxFor(m => m.Address,
                         new
                         {
@@ -93,7 +93,6 @@
                             required = "required"
                         }
                 )
-        @*<input type="text" style="max-width:100%!important;" class="form-control" name="editAddress" id="editAddress" placeholder="House no., Street name, Compound, City" maxlength="128" required />*@
     </div>
 </div>
 <div class="modal-footer">
