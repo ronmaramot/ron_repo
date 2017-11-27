@@ -1,0 +1,14 @@
+﻿@model CRUD.Models.Person
+
+<div class="modal-header" style="border-radius:5px 5px 0 0; background-color:#c9302c; color:#ffffff;">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Delete Person</h4>
+</div>
+<div class="modal-body">
+    Are you sure you want to delete?
+</div>
+<div class="modal-footer" style="margin-top:0!important;">
+    @Html.HiddenFor(m => m.Id, new { @Value = Model.Id })
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Confirm Delete</button>
+</div>

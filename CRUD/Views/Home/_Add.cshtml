@@ -1,0 +1,99 @@
+﻿@model CRUD.Models.Person
+
+<div class="modal-header" style="border-radius:5px 5px 0 0; background-color:#428bca; color:#ffffff;">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Add New Person</h4>
+</div>
+<div class="modal-body">
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label for="addName">Name</label>
+            @Html.TextBoxFor(m => m.Name,
+                    new
+                    {
+                        @style = "max-width:100%!important;",
+                        @class = "form-control",
+                        @id = "addName",
+                        @name = "addName",
+                        @placeholder = "Full Name",
+                        @maxlength = "50",
+                        required = "required"
+                    }
+            )
+        </div>
+        <div class="form-group col-md-4">
+            <label for="addGender">Gender</label>
+            @Html.DropDownListFor(m => m.Gender,
+                    new SelectList
+                    (
+                        new List<Object>
+                        {
+                            new { value = "Male" , text = "Male"},
+                            new { value = "Female", text = "Female"}
+                        },
+                        "value",
+                        "text"
+                    ),
+                    new
+                    {
+                        @style = "max-width:100%!important;",
+                        @class = "form-control",
+                        @id = "addGender",
+                        @name = "addGender",
+                    }
+            )
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label for="addDOB">Birthday</label>
+            @Html.TextBoxFor(m => m.Birthday,
+                    new
+                    {
+                        @class = "form-control",
+                        @style = "max-width:100%!important;",
+                        @name = "addDOB",
+                        @id = "addDOB",
+                        @Value = "",
+                        @onkeydown = "return false;",
+                        required = "required"
+                    }
+            )
+        </div>
+        <div class="form-group col-md-4">
+            <label>Age</label>
+            @Html.TextBoxFor(m => m.Age,
+                    new
+                    {
+                        @style = "max-width:100%!important;",
+                        @class = "form-control",
+                        @name = "addAge",
+                        @id = "addAge",
+                        @Value = "",
+                        @readonly = "readonly"
+                    }
+            )
+            @*<input type="text" class="form-control" id="addAge" name="age" readonly />*@
+        </div>
+    </div>
+    <div class="form-row">
+        <label for="addAddress">Address</label>
+        @Html.TextBoxFor(m => m.Address,
+                new
+                {
+                    @style = "max-width:100%!important;",
+                    @class = "form-control col-md-12",
+                    @name = "addAddress",
+                    @id = "addAddress",
+                    @placeholder = "House no., Street name, Compound, City",
+                    @maxlength = "128",
+                    required = "required"
+                }
+        )
+        @*<input type="text" style="max-width:100%!important;" class="form-control" name="addAddress" id="addAddress" placeholder="House no., Street name, Compound, City" maxlength="128" required />*@
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Add Person</button>
+</div>
